@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import waves from '../images/waves.png';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -7,13 +7,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-//import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import { useAuth } from "../auth/authProvider";
 
 function Copyright(props) {
   return (
@@ -32,14 +32,30 @@ const theme = createTheme();
 
 export default function SignInSide() {
 
+  let navigate = useNavigate();
+  let location = useLocation();
+  // let auth = useAuth();
+
+  let from = location.state?.from?.pathname || "/";
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+    // auth.signin(data, () => {
+    //   // console.log({
+    //   //   email: data.get('email'),
+    //   //   password: data.get('password'),
+    //   // });
+
+    //   // Send them back to the page they tried to visit when they were
+    //   // redirected to the login page. Use { replace: true } so we don't create
+    //   // another entry in the history stack for the login page.  This means that
+    //   // when they get to the protected page and click the back button, they
+    //   // won't end up back on the login page, which is also really nice for the
+    //   // user experience.
+    //   navigate(from, { replace: true });
+    // });
   };
 
   return (
@@ -116,7 +132,7 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link to="register" variant="body2">
+                  <Link to="/register" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
