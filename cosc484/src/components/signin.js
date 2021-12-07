@@ -13,7 +13,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import { useAuth } from "../auth/authProvider";
+import { useAuth } from "../auth/authProvider";
 
 function Copyright(props) {
   return (
@@ -34,28 +34,29 @@ export default function SignInSide() {
 
   let navigate = useNavigate();
   let location = useLocation();
-  // let auth = useAuth();
+  let auth = useAuth();
 
   let from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    let username = data.get("username");
 
-    // auth.signin(data, () => {
-    //   // console.log({
-    //   //   email: data.get('email'),
-    //   //   password: data.get('password'),
-    //   // });
+    auth.signin(username, () => {
+      // console.log({
+      //   email: data.get('email'),
+      //   password: data.get('password'),
+      // });
 
-    //   // Send them back to the page they tried to visit when they were
-    //   // redirected to the login page. Use { replace: true } so we don't create
-    //   // another entry in the history stack for the login page.  This means that
-    //   // when they get to the protected page and click the back button, they
-    //   // won't end up back on the login page, which is also really nice for the
-    //   // user experience.
-    //   navigate(from, { replace: true });
-    // });
+      // Send them back to the page they tried to visit when they were
+      // redirected to the login page. Use { replace: true } so we don't create
+      // another entry in the history stack for the login page.  This means that
+      // when they get to the protected page and click the back button, they
+      // won't end up back on the login page, which is also really nice for the
+      // user experience.
+      navigate(from, { replace: true });
+    });
   };
 
   return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Link } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import { makeStyles } from "@mui/styles";
@@ -13,11 +14,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Leftbar() {
     const classes = useStyles();
+    let navigate = useNavigate();
+
     return (
         <Container>
             <div className={classes.item}>
                 <HomeIcon />
-                <Link to='/' variant='inherit' pointer='none' underline='hover'>Home</Link>
+                <Link component="button"  variant="body2" onClick={() => navigate("/")}>
+                    Home
+                </Link>
             </div>
         </Container>
     )
