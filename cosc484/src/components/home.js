@@ -1,12 +1,14 @@
-import * as React from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import InfiniteList from './infinitelist';
+import Leftbar from './Leftbar';
+import Feed from './Feed';
+
 // import { AuthProvider } from '../auth/authProvider';
 
-export default class Home extends React.Component {
+export default class Home extends Component {
 
   render() {
-      if (true)
+      if (false)
       {
         return(
           <div>
@@ -17,7 +19,12 @@ export default class Home extends React.Component {
         );
       }
       else {
-        <InfiniteList />
+        return(
+          <Fragment>
+            <Leftbar />
+            <Feed />
+          </Fragment>
+        )
       }
   }
 }
