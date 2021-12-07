@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { Component, Fragment } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 const style = {
@@ -8,7 +8,7 @@ const style = {
   padding: 8
 };
 
-export default class InfiniteList extends React.Component {
+export default class InfiniteList extends Component {
   state = {
     items: Array.from({ length: 20 })
   };
@@ -25,7 +25,7 @@ export default class InfiniteList extends React.Component {
 
   render() {
     return (
-        <div>
+        <Fragment>
             <InfiniteScroll
                 dataLength={this.state.items.length}
                 next={this.fetchMoreData}
@@ -38,7 +38,7 @@ export default class InfiniteList extends React.Component {
                 </div>
                 ))}
             </InfiniteScroll>
-        </div>
+        </Fragment>
     );
   }
 }

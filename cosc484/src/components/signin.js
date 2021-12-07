@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import waves from '../images/waves.png';
 import Avatar from '@mui/material/Avatar';

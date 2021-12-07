@@ -1,10 +1,11 @@
+import React from 'react';
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles"
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     media: {
         height: 250,  
-    },
+    }
 }));
 
 export default function Post() {
