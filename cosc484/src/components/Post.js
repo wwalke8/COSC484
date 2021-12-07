@@ -5,7 +5,7 @@ import { spacing } from "@mui/system";
 
 const useStyles = makeStyles(theme => ({
     card: {
-        height: 350
+        marginBottom: theme.spacing(5),
     },
     media: {
         height: 200
