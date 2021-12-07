@@ -28,7 +28,7 @@ export default class InfiniteList extends Component {
                 loader={<h4>Loading...</h4>}
             >
                 {this.state.items.map((item, index) => (
-                  <Post key='index' imageUrl='http://c.files.bbci.co.uk/CF3C/production/_111925035_penguino.jpg' title='My Post' body='Etiam pellentesque sit amet eros non placerat. Sed at dictum justo, eu accumsan nisl. Pellentesque a nunc at lectus aliquet pharetra.' />
+                  <Post key='index' imageUrl='https://www.incimages.com/uploaded_files/image/1920x1080/getty_626660256_2000108620009280158_388846.jpg' title='My Post' body='Etiam pellentesque sit amet eros non placerat. Sed at dictum justo, eu accumsan nisl. Pellentesque a nunc at lectus aliquet pharetra.' />
                 ))}
             </InfiniteScroll>
         </Fragment>
