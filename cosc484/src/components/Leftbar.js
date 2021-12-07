@@ -1,10 +1,12 @@
 import { Container, Typography } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import { makeStyles } from "@mui/styles";
+import { blue } from "@mui/material/colors";
 
 const useStyles = makeStyles((theme) => ({
     item: {
-        display: "flex"
+        display: "flex",
+        color: blue[500]
     },
 }));
 
