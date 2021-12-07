@@ -3,24 +3,27 @@ import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typo
 import { makeStyles } from "@mui/styles"
 
 const useStyles = makeStyles(theme => ({
+    card: {
+        height: 350
+    },
     media: {
-        height: 250,  
+        height: 200
     }
 }));
 
-export default function Post() {
+export default function Post (props) {
     const classes = useStyles();
     return (
-       <Card>
+       <Card className={classes.card}>
            <CardActionArea>
                <CardMedia
                    className={classes.media}
-                   image="http://c.files.bbci.co.uk/CF3C/production/_111925035_penguino.jpg"
-                   title="My Post"
+                   image={props.imageUrl}
+                   title='post image'
                 />
                 <CardContent>
-                    <Typography variant="h5">My First Post</Typography>
-                    <Typography variant="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis odio ipsum, et porta lorem tristique a. Vivamus tortor diam, maximus vitae vestibulum in, pellentesque luctus diam. Donec placerat sem ac sodales dignissim. Etiam pellentesque sit amet eros non placerat. Sed at dictum justo, eu accumsan nisl. Pellentesque a nunc at lectus aliquet pharetra.</Typography>
+                    <Typography variant="h4">{props.title}</Typography>
+                    <Typography variant="body">{props.body}</Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions>
