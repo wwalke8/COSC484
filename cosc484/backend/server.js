@@ -25,9 +25,9 @@ connection.once('open', () => {
 app.use(express.json());
 
 app.listen(port, () => {
-    const usersRouter = require('/routes/users');
-    const postsRouter = require('/routes/posts');
-    const commentsRouter = require('/routes/comments');
+    const usersRouter = require('./routes/users');
+    const postsRouter = require('./routes/posts');
+    const commentsRouter = require('./routes/comments');
 
     app.use('/users', usersRouter);
     app.use('/posts', postsRouter);

@@ -1,27 +1,18 @@
-const router = require('express').Router();
-let Comment = require('../comments.model');
-
-router.route('/').get((req, res) => {
-  Comment.find()
-    .then(comments => res.json(comments))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-router.route('/add').post((req, res) => {
-  const comment = req.body.comment;
-  const user = req.body.user;
-  const post = req.body.post;
-
-
-
-
-  const newComment = new Comment({
-      comment, user, post
-    });
-
-  newComment.save()
-    .then(() => res.json('Comment added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-module.exports = router;
+//COMMENTS ROUTE
+module.exports = app => {
+    const comments = require("../controllers/comments.controller.js");
+     var router = require("express").Router();
+     // Create a new Tutorial
+    router.post("/", comments.create);
+     // Retrieve all Tutorials
+    router.get("/", comments.findAll);
+     // Retrieve a single Tutorial with id
+    router.get("/:id", comments.findOne);
+     // Update a Tutorial with id
+    router.put("/:id", comments.update);
+     // Delete a Tutorial with id
+    router.delete("/:id", comments.delete);
+     // Create a new Tutorial
+    router.delete("/", comments.deleteAll);
+     app.use('/comments', router);
+  };

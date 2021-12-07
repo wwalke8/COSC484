@@ -1,29 +1,20 @@
-
-const router = require('express').Router();
-let User = require('../users.model');
-
-router.route('/').get((req, res) => {
-  User.find()
-    .then(users => res.json(users))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-router.route('/add').post((req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  const email = req.body.email;
-  const isArtist = Boolean(req.body.isArtist);
-  const following = req.body.following;
-  const followers = req.body.followers;
-  const location = req.body.location;
-
-  const newUser = new User({
-      username, password, email, isArtist, following, followers, location
-    });
-
-  newUser.save()
-    .then(() => res.json('User added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-module.exports = router;
+//USER ROUTE
+module.exports = app => {
+    const users = require("../controllers/user.controller.js");
+     var router = require("express").Router();
+     // Create a new Tutorial
+    router.post("/", users.create);
+     // Retrieve all Tutorials
+    router.get("/", users.findAll);
+     // Retrieve all published Tutorials
+    router.get("/isArtist", users.findAllIsArtists);
+     // Retrieve a single Tutorial with id
+    router.get("/:id", users.findOne);
+     // Update a Tutorial with id
+    router.put("/:id", users.update);
+     // Delete a Tutorial with id
+    router.delete("/:id", users.delete);
+     // Create a new Tutorial
+    router.delete("/", users.deleteAll);
+     app.use('/users', router);
+};
