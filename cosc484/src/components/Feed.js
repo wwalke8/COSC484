@@ -13,6 +13,7 @@ export default function Feed() {
     return (
         <Container className={classes.container}>
             <Post />
+            <Post />
         </Container>
     )
 }
