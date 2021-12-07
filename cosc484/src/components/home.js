@@ -19,10 +19,12 @@ export default class Home extends Component {
         );
       }
       else {
-        <Fragment>
-          <Leftbar />
-          <Feed />
-        </Fragment>
+        return(
+          <Fragment>
+            <Leftbar />
+            <Feed />
+          </Fragment>
+        )
       }
   }
 }
