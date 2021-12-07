@@ -4,7 +4,10 @@ import { makeStyles } from "@mui/styles"
 
 const useStyles = makeStyles(theme => ({
     card: {
-        height: 350
+        height: 350,
+        border: "1px solid green",
+        margin: 6,
+        padding: 8
     },
     media: {
         height: 200

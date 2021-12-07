@@ -2,14 +2,8 @@ import React, { Component, Fragment } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Post from './Post';
 
-const style = {
-  height: 30,
-  border: "1px solid green",
-  margin: 6,
-  padding: 8
-};
-
 export default class InfiniteList extends Component {
+  
   state = {
     items: Array.from({ length: 20 })
   };

@@ -3,10 +3,9 @@ import { Container } from "@mui/material";
 import { makeStyles } from "@mui/styles"
 import InfiniteList from './infinitelist';
 
-
 const useStyles = makeStyles((theme) => ({
     container: {
-        
+        width: '60%'
     }
 }));
 

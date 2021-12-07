@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import Leftbar from './Leftbar';
 import Feed from './Feed';
 
 // import { AuthProvider } from '../auth/authProvider';
@@ -21,7 +20,6 @@ export default class Home extends Component {
       else {
         return(
           <Fragment>
-            <Leftbar />
             <Feed />
           </Fragment>
         )
