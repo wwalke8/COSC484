@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles"
 
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +22,10 @@ export default function Post() {
                     <Typography variant="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis odio ipsum, et porta lorem tristique a. Vivamus tortor diam, maximus vitae vestibulum in, pellentesque luctus diam. Donec placerat sem ac sodales dignissim. Etiam pellentesque sit amet eros non placerat. Sed at dictum justo, eu accumsan nisl. Pellentesque a nunc at lectus aliquet pharetra.</Typography>
                 </CardContent>
             </CardActionArea>
+            <CardActions>
+                <Button size="small" color="primary">Like</Button>
+                <Button size="small" color="primary">Comment</Button>
+            </CardActions>
        </Card>
     )
 }
