@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import Leftbar from './components/Leftbar';
-import Feed from './components/Feed';
+import Leftbar from './Leftbar';
+import Feed from './Feed';
 
 // import { AuthProvider } from '../auth/authProvider';
 
