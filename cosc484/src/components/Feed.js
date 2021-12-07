@@ -5,7 +5,7 @@ import InfiniteList from './infinitelist';
 
 const useStyles = makeStyles((theme) => ({
     container: {
-        width: '60%'
+        paddingTop: theme.spacing(10),
     }
 }));
 

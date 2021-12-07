@@ -1,13 +1,11 @@
 import React from 'react';
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles"
+import { spacing } from "@mui/system";
 
 const useStyles = makeStyles(theme => ({
     card: {
-        height: 350,
-        border: "1px solid green",
-        margin: 6,
-        padding: 8
+        marginBottom: theme.spacing(5),
     },
     media: {
         height: 200
