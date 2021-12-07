@@ -9,6 +9,7 @@ import NoMatch from './components/nomatch';
 import Leftbar from './components/Leftbar';
 import Titlebar from './components/Titlebar'
 import { AuthStatus } from './auth/authStatus';
+import Add from './components/Add';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Grid item xs={3} md={3} lg={3}>
           <AuthStatus />
         </Grid>
+        <Add />
       
       <Routes>       
         <Route path="/" element={<Home />} />

@@ -33,9 +33,11 @@ export default function SignUp() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
+
     console.log({
       email: data.get('email'),
       password: data.get('password'),
+      isArtist: data.get('isArtist')
     });
   };
 
@@ -100,6 +102,12 @@ export default function SignUp() {
                   id="password"
                   autoComplete="new-password"
                 />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={<Checkbox value = "isArtist" color = "primary" />}
+                  label = "I am an artist and I want to share my work"
+                  /> 
               </Grid>
             </Grid>
             <Button
