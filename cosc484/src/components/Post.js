@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles"
-import { spacing } from "@mui/system";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -23,7 +22,7 @@ export default function Post (props) {
                    title='post image'
                 />
                 <CardContent>
-                    <Typography variant="h4">{props.title}</Typography>
+                    <Typography gutterBottom variant="h5">{props.title}</Typography>
                     <Typography variant="body">{props.body}</Typography>
                 </CardContent>
             </CardActionArea>

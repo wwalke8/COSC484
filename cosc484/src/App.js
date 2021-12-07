@@ -7,7 +7,8 @@ import SignInSide from './components/signin';
 import SignUp from './components/signup';
 import NoMatch from './components/nomatch';
 import Leftbar from './components/Leftbar';
-import Titlebar from './components/Titlebar'
+import Titlebar from './components/Titlebar';
+import Add from './components/Add';
 //import { AuthProvider } from './auth/authProvider';
 //import { AuthStatus, RequireAuth } from './auth/authStatus';
 
@@ -25,6 +26,7 @@ export default function App() {
         <Grid item xs={3} md={3} lg={3}>
           <Leftbar />
         </Grid>
+        <Add />
       
       <Routes>       
         <Route path="/" element={<Home />} />
