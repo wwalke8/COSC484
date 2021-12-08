@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState, createContext } from 'react';
 
 export function AuthProvider({ children }) {
   let [user, setUser] = useState(null);
 
   let signin = (newUser, callback) => {
-    return fakeAuthProvider.signin(() => {
+    return localAuthProvider.signin(() => {
       setUser(newUser);
       callback();
     });
   };
 
   let signout = (callback) => {
-    return fakeAuthProvider.signout(() => {
+    return localAuthProvider.signout(() => {
       setUser(null);
       callback();
     });
@@ -22,26 +22,20 @@ export function AuthProvider({ children }) {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
-export const fakeAuthProvider = {
+export const localAuthProvider = {
   isAuthenticated: false,
   signin(callback) {
-    fakeAuthProvider.isAuthenticated = true;
-    setTimeout(callback, 100); // fake async
+    localAuthProvider.isAuthenticated = true;
+    setTimeout(callback, 100);
   },
   signout(callback) {
-    fakeAuthProvider.isAuthenticated = false;
+    localAuthProvider.isAuthenticated = false;
     setTimeout(callback, 100);
   }
 };
 
-// interface AuthContextType {
-//   user;
-//   signin: (user, callback) => void;
-//   signout: (callback) => void;
-// }
-
-const AuthContext = React.createContext(!null);
+const AuthContext = createContext(!null);
 
 export function useAuth() {
-  return React.useContext(AuthContext);
+  return useContext(AuthContext);
 }
