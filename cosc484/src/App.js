@@ -10,29 +10,32 @@ import Leftbar from './components/Leftbar';
 import Titlebar from './components/Titlebar'
 import { AuthStatus } from './auth/authStatus';
 import Add from './components/Add';
+import { AuthProvider } from './auth/authProvider';
 
 export default function App() {
   return (
     <div className="App">
-      <Grid container component="main" sx={{ height: '100vh' }}>
-        <Grid item xs={3} md={3} lg={3}>
-          <Leftbar />
+      <AuthProvider>
+        <Grid container component="main" sx={{ height: '100vh' }}>
+          <Grid item xs={3} md={3} lg={3}>
+            <Leftbar />
+          </Grid>
+          <Grid item xs={6} md={6} lg={6}>
+            <Titlebar />
+          </Grid>
+          <Grid item xs={3} md={3} lg={3}>
+            <AuthStatus />
+          </Grid>
+          <Add />
+        
+        <Routes>       
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<SignInSide />} />
+          <Route path="/register" element={<SignUp />} /> 
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
         </Grid>
-        <Grid item xs={6} md={6} lg={6}>
-          <Titlebar />
-        </Grid>
-        <Grid item xs={3} md={3} lg={3}>
-          <AuthStatus />
-        </Grid>
-        <Add />
-      
-      <Routes>       
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<SignInSide />} />
-        <Route path="/register" element={<SignUp />} /> 
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
-      </Grid>
+      </AuthProvider>
     </div>
   );
 };
