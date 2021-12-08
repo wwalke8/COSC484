@@ -34,7 +34,7 @@ export const localAuthProvider = {
   }
 };
 
-const AuthContext = createContext(!null);
+const AuthContext = createContext({ user: null, isAuthenticated: false });
 
 export function useAuth() {
   return useContext(AuthContext);
